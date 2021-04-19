@@ -1,30 +1,29 @@
 package br.com.raphaelrossi.example;
 
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 /**
  * Estudante
  */
-public class Estudante {
-    private String nome;
+
+@Entity
+public class Estudante extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue
+    public UUID id;
+
+    public String nome;
     
-    private Integer numeroChamada;
+    public Integer numeroChamada;
     
     public Estudante() {
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getNumeroChamada() {
-        return numeroChamada;
-    }
-
-    public void setNumeroChamada(Integer numeroChamada) {
-        this.numeroChamada = numeroChamada;
     }
 
     @Override
